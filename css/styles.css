@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+html {
+	--mla-blauw-paars: #200c4f;
+	--mla-lila: #b8a5de;
+	--mla-oranje: #eb5f31;
+	--mla-licht-grijs: #cccccc;
+	--mla-geel: #f6d148;
+	--mla-roze: #e46796;
+	--mla-licht-blauw: #91cded;
+	--mla-licht-groen: #bfd9d1;
+	--mla-groen: #92d668;
+	
+}
+
+
+body {
+	margin: 0;
+	font-family: Raleway, Arial;
+}
+
+
+a {
+	text-decoration: none;
+	height: 60px;
+	line-height: 60px;
+	cursor: pointer;
+	padding: 0 10px;
+}
