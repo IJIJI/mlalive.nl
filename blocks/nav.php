@@ -4,23 +4,49 @@
 <nav <?php if ($navbarTop) {echo 'id="top"';} ?>>
 	<div class="nav">
 		<div class="navImg">
-			<a class="navImg" href="/index.php"><img src="img/logo.png" alt="MLA logo"  onerror="this.src='../img/logo.png';"/></a>
+			<a class="navImg" href="/index.php"><img src="img/logo_lowres.png" alt="MLA logo"  onerror="this.src='../img/logo_lowres.png';"/></a>
 		</div>
 		<ul class="nav">
 
 			<li class="nav"><a class="nav" <?php if ($currentPage === 'Home') {echo 'id="active"';} ?> href="/index.php">Home</a></li>
 			<li class="nav"><a class="nav" <?php if ($currentPage === 'Q&A') {echo 'id="active"';} ?> href="/qa/index.php">Q&amp;A</a></li>
+			
+			<?php if (isset($_SESSION['userClearance']) && $_SESSION['userClearance'] >= 8): ?>
 			<li class="nav"><a class="nav" <?php if ($currentPage === 'Admin') {echo 'id="active"';} ?> href="/admin/index.php">Admin</a></li>
+			<?php endif; ?>
+			
 <!--			<li class="nav rightNav"><a class="nav" <?php if ($currentPage === 'Account') {echo 'id="active"';} ?> href="account/index.php">Account</a></li>-->
 			
 		</ul>
 		<div class="navAccount">
 <!--			<a class="nav" <?php if ($currentPage === 'Account') {echo 'id="active"';} ?> href="account/index.php">Account</a>-->
+
+
+
+			<?php if (isset($_SESSION['userID'])): ?>
+			
+			<a class="navAccount" <?php if ($currentPage === 'Account' || $currentPage === 'Login' || $currentPage === 'Register') {echo 'id="active"';} ?> href="/account/index.php"><span style="font-size: inherit;" class="material-icons">person</span>
+			
+			
+			</a>
+
+			
+			<div class="navAccountName">  <!-- <<moet in de A			-->
+				<p><?php echo($_SESSION['userName']) ?></p>  <!-- <<problemeaa			-->
+				<p><?php echo($_SESSION['userSurname']) ?></p>
+			</div>
+			
+			<?php else: ?>
 			<a class="navAccount" <?php if ($currentPage === 'Account' || $currentPage === 'Login' || $currentPage === 'Register') {echo 'id="active"';} ?> href="/account/index.php"><span style="font-size: inherit;" class="material-icons">person_outline</span></a>
+			<?php endif; ?>
+
+
+
 		</div>
 
 	</div>
 </nav>
+
 
 
 

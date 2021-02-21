@@ -41,6 +41,7 @@ div.form{
 form.login-form h1 {
 	font-size: 30px;
 	font-weight: 500;
+	margin-bottom: calc(50px - 15px);
 }
 
 p.message {
@@ -62,13 +63,13 @@ a.message:hover, a.message:active, a.message:focus {
 	color: var(--mla-blauw-paars);
 }
 
-form.login-form input, form.login-form button{
+div.textbox input, #button{
 	box-sizing: border-box;
 	font-family: Raleway, Arial;
 	font-size: 20px;
 	
 	outline: 0;
-	border: 1.5px solid grey;
+	border: 1px solid grey;
 	border-radius: 3px;
 	
 	display: block;
@@ -77,25 +78,31 @@ form.login-form input, form.login-form button{
 
 }
 
-form.login-form input {
+div.textbox input {
 /*	border: 0;*/
 	background: white;
 }
 
-form.login-form button{
-	margin: 50px auto 0;
+#button{
+	margin: 40px auto 0;
 	text-transform: uppercase;
   outline: 0;
 	background: var(--mla-lila);
 	color: black;
-	transition: 0.15s ease-in-out background;
-	transition: 0.15s ease-in-out color;
+	transition: 0.15s ease-in-out background, 0.15s ease-in-out color;
+
 }
 
-.form button:hover,.form button:active,.form button:focus {
+#button:hover, #button:active, #button:focus {
 	background: var(--mla-blauw-paars);
 	color: white;
 }
+
+/*
+#button{
+	display: none;
+}
+*/
 
 
 /*!*/
@@ -106,16 +113,16 @@ form.login-form button{
 }
 
 .textbox {
-	padding: 1px;
 	position: relative;
 /*	background: #ccc;*/
 	z-index: 1;
 	border-radius: 6px;
 	overflow: hidden;
 	padding: 2px;
-	margin: 50px auto 0;
+	margin: 15px auto 0;
 /*	margin: 0.5rem 0;*/
 }
+
 
 .border {
 	position: absolute;
@@ -126,7 +133,7 @@ form.login-form button{
 	height: 100%;
 	background: var(--mla-blauw-paars);
 	z-index: -1;
-	transition: height 0.3s, width 0.3s 0.1s, left 0.3s 0.1s;
+	transition: height 0.2s ease, width 0.2s 0.06s ease, left 0.2s 0.06s ease;
 }
 
 input:focus~.border {

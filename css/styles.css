@@ -22,10 +22,9 @@ body {
 }
 
 
+
+
 a {
 	text-decoration: none;
-	height: 60px;
-	line-height: 60px;
 	cursor: pointer;
-	padding: 0 10px;
 }

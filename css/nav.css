@@ -83,6 +83,34 @@ ul.nav {
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
 }
 
+a.nav {
+	padding: 0 10px;
+}
+
+div.navAccount{
+	display: flex;
+	flex-wrap: wrap;
+/*	align-items: center;*/
+	height: var(--nav-height);
+	
+}
+
+div.navAccountName{
+	padding-right: 20px;
+	display: flex;
+	flex-direction: column;
+	height: var(--nav-height);
+	padding-top: calc(var(--nav-height) * 0.1);
+}
+
+div.navAccountName p { /* betere font size met percentages*/
+	flex-shrink: 1;	
+	font-size: 18px;
+	justify-content: center;
+	line-height: calc(var(--nav-height) * 0.4); 
+	padding: 0; 
+	margin: 0;
+}
 
 a.nav, a.navAccount {
 	
@@ -107,7 +135,7 @@ a.navAccount {
 }
 
 
-a.nav:hover, a.nav:active, a.navAccount:hover, a.navAccount:active, #active {
+a.nav:hover, a.nav:active,  a.navAccount:hover, a.navAccount:active,  #active {
 /*	color: var(--mla-blauw-paars);*/
 	color: var(--mla-lila);
 }

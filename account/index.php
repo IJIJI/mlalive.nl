@@ -1,11 +1,10 @@
 
 <?php 
+	session_start();
+//	echo session_id();
+
 	$currentPage = 'Account';
 	$navbarTop = true;
-?>
-
-<?php 
-session_start();
 
 	include("account_connection.php");
 	include("account_functions.php");
@@ -39,7 +38,7 @@ session_start();
 
 </head>
 <body>
-	<?php include($_SERVER['DOCUMENT_ROOT'].'../blocks/nav.php'); ?>
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/blocks/nav.php'); ?>
 	<?php echo($currentPage); ?>
 </body>
 </html>

@@ -1,7 +1,15 @@
 
 <?php 
+	session_start();
+//	echo session_id();
+
 	$currentPage = 'Home';
 	$navbarTop = true;
+
+	include($_SERVER['DOCUMENT_ROOT'].'/account/account_connection.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/account/account_functions.php');
+
+
 ?>
 
 <!doctype html> 

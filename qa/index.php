@@ -1,5 +1,8 @@
 
 <?php 
+	session_start();
+//	echo session_id();
+
 	$currentPage = 'Q&A';
 	$navbarTop = true;
 ?>
