@@ -96,11 +96,12 @@ div.navAccount{
 }
 
 div.navAccountName{
-	padding-right: 20px;
+	padding-left: 10px;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	height: var(--nav-height);
-	padding-top: calc(var(--nav-height) * 0.1);
+/*	padding-top: calc(var(--nav-height) * 0.1);*/
 }
 
 div.navAccountName p { /* betere font size met percentages*/
@@ -132,6 +133,12 @@ a.nav, a.navAccount {
 a.navAccount {
 	font-size: 35px;
 	padding: 0 calc(var(--nav-height) * 0.5 - 17.5px);
+	height: var(--nav-height);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	-ms-align-items: center;
+	align-items: center;
 }
 
 

@@ -3,14 +3,13 @@
 	session_start();
 //	echo session_id();
 
-	$currentPage = 'Home';
-	$navbarTop = true;
+	$currentPage = 'Streams';
+	$navbarTop = true;	
 
 	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_connection.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_functions.php');
 
-
-	$user_data = verifyAccount($con, 0);
+	$user_data = verifyAccount($con, 1);
 ?>
 
 
@@ -20,8 +19,8 @@
 
 	<meta charset="utf-8">
 
-	<link rel="stylesheet" href="css\styles.css">
-	<link rel="stylesheet" href="css\nav.css">
+	<link rel="stylesheet" href="../qa/../css/styles.css">
+	<link rel="stylesheet" href="../qa/../css/nav.css">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 

@@ -1,6 +1,30 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*
+::selection{
+  color: white;
+  background: var(--mla-lila);
+}
+::-moz-selection{
+  color: white;
+  background: var(--mla-lila);
+}
+*/
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.00);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--mla-lila);
+/*  border-radius: 2px;*/
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--mla-blauw-paars);
+}
 
 html {
 	--mla-blauw-paars: #200c4f;
@@ -13,18 +37,21 @@ html {
 	--mla-licht-groen: #bfd9d1;
 	--mla-groen: #92d668;
 	
+	
+	--main-border-radius: 7px;
+	--small-item-border-radius: 3px;
+	--large-item-border-radius: 5px;
 }
 
 
 body {
 	margin: 0;
 	font-family: Raleway, Arial;
+	
 }
-
-
-
 
 a {
 	text-decoration: none;
 	cursor: pointer;
+	color: black;
 }

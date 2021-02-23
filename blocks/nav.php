@@ -4,14 +4,18 @@
 <nav <?php if ($navbarTop) {echo 'id="top"';} ?>>
 	<div class="nav">
 		<div class="navImg">
-			<a class="navImg" href="/index.php"><img src="img/logo_lowres.png" alt="MLA logo"  onerror="this.src='../img/logo_lowres.png';"/></a>
+			<a class="navImg" href="/index.php"><img src="/img/logo_lowres.png" alt="MLA logo"  onerror="this.src='../img/logo_lowres.png';"/></a>
 		</div>
 		<ul class="nav">
 
 			<li class="nav"><a class="nav" <?php if ($currentPage === 'Home') {echo 'id="active"';} ?> href="/index.php">Home</a></li>
-			<li class="nav"><a class="nav" <?php if ($currentPage === 'Q&A') {echo 'id="active"';} ?> href="/qa/index.php">Q&amp;A</a></li>
+			<li class="nav"><a class="nav" <?php if ($currentPage === 'Q&A' || $currentPage === 'Q&A Viewer' || $currentPage === 'Q&A Archive') {echo 'id="active"';} ?> href="/streams/qa/index.php">Q&amp;A</a></li>
 			
-			<?php if (isset($_SESSION['userClearance']) && $_SESSION['userClearance'] >= 8): ?>
+			<?php if (isset($_SESSION['userID']) && $user_data['clearance'] >= 1): ?>
+			<li class="nav"><a class="nav" <?php if ($currentPage === 'Streams') {echo 'id="active"';} ?> href="/streams/index.php">Streams</a></li>
+			<?php endif; ?>
+			
+			<?php if (isset($_SESSION['userID']) && $user_data['clearance'] >= 15): ?>
 			<li class="nav"><a class="nav" <?php if ($currentPage === 'Admin') {echo 'id="active"';} ?> href="/admin/index.php">Admin</a></li>
 			<?php endif; ?>
 			
@@ -27,17 +31,15 @@
 			
 			<a class="navAccount" <?php if ($currentPage === 'Account' || $currentPage === 'Login' || $currentPage === 'Register') {echo 'id="active"';} ?> href="/account/index.php"><span style="font-size: inherit;" class="material-icons">person</span>
 			
-			
+				<div class="navAccountName">  <!-- <<moet in de A			-->
+					<p><?php echo($user_data['name']) ?></p>  <!-- <<problemeaa			-->
+					<p><?php echo($user_data['surname']) ?></p>
+				</div>
+				
 			</a>
-
-			
-			<div class="navAccountName">  <!-- <<moet in de A			-->
-				<p><?php echo($_SESSION['userName']) ?></p>  <!-- <<problemeaa			-->
-				<p><?php echo($_SESSION['userSurname']) ?></p>
-			</div>
 			
 			<?php else: ?>
-			<a class="navAccount" <?php if ($currentPage === 'Account' || $currentPage === 'Login' || $currentPage === 'Register') {echo 'id="active"';} ?> href="/account/index.php"><span style="font-size: inherit;" class="material-icons">person_outline</span></a>
+			<a class="navAccount" <?php if ($currentPage === 'Account' || $currentPage === 'Login' || $currentPage === 'Register' || $currentPage === 'Register') {echo 'id="active"';} ?> href="/account/index.php"><span style="font-size: inherit;" class="material-icons">person_outline</span></a>
 			<?php endif; ?>
 
 

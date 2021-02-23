@@ -6,10 +6,10 @@
 	$currentPage = 'Account';
 	$navbarTop = true;
 
-	include("account_connection.php");
-	include("account_functions.php");
+	include("scripts/account_connection.php");
+	include("scripts/account_functions.php");
 
-	$user_data = check_login($con);
+	$user_data = verifyAccount($con, 1);
 
 ?>
 
@@ -20,8 +20,10 @@
 
 	<meta charset="utf-8">
 
-	<link rel="stylesheet" href="\css\styles.css">
-	<link rel="stylesheet" href="\css\nav.css">
+	<link rel="stylesheet" href="..\css\styles.css">
+	<link rel="stylesheet" href="..\css\nav.css">
+	<link rel="stylesheet" href="../css/accountForm.css">
+	<link rel="stylesheet" href="../css/account.css">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -39,6 +41,47 @@
 </head>
 <body>
 	<?php include($_SERVER['DOCUMENT_ROOT'].'/blocks/nav.php'); ?>
-	<?php echo($currentPage); ?>
+<!--	<?php echo($currentPage); ?>-->
+	
+	
+	<div class="login-page">
+		<div class="form">
+			<form action="logout.php" class="login-form">
+				
+				<div class="userAccount">
+					<h1><?php echo($user_data['name']." ".$user_data['surname']); ?></h1>
+					<a class="userAccount" href="/account/edit_account.php"><span style="font-size: inherit;" class="material-icons">edit</span></a>
+				</div>
+
+				<div class="textbox">
+					 <p class="mailBox"><?php echo($user_data['mail']); ?></p>
+				</div>
+				
+<!--
+				<div class="textbox">
+					 <input type="password" placeholder="oud wachtwoord" name="userPassword"/>
+					 <div class="border"></div>
+				</div>
+				
+				<div class="textbox">
+					 <input type="password" placeholder="nieuw wachtwoord" name="userPassword"/>
+					 <div class="border"></div>
+				</div>
+				<div class="textbox">
+					 <input type="password" placeholder="herhaaling nieuw wachtwoord" name="userPassword"/>
+					 <div class="border"></div>
+				</div>
+-->
+				
+				<!-- <div class="textbox">
+					 <input type="password" placeholder="wachtwoord herhalen" name="userPasswordRepeat"/>
+					 <div class="border"></div>
+				</div> -->
+				
+				
+				<button id="button">Log Uit</button>
+
+			</form>
+		</div>
 </body>
 </html>

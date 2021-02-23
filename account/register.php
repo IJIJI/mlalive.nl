@@ -1,43 +1,16 @@
 
 <?php 
+	session_start();
+
 	$currentPage = 'Register';
-	$navbarTop = false;
+	$navbarTop = false;	
+
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_connection.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_functions.php');
+
+	$user_data = verifyAccount($con, 0);
 ?>
 
-
-<?php 
-session_start();
-
-	include($_SERVER['DOCUMENT_ROOT'].'/account/account_connection.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/account/account_functions.php');
-
-
-//	if($_SERVER['REQUEST_METHOD'] == "POST")
-	if(isset($_POST['userName']) && isset($_POST['userSurName']) && isset($_POST['userMail']) && isset($_POST['userPassword']))
-	{
-		//something was posted
-		$userName = $_POST['userName'];
-		$userSurName = $_POST['userSurName'];
-		$userMail = $_POST['userMail'];
-		$userPassword = $_POST['userPassword'];
-
-		if(!empty($userName) && !empty($userSurName) && !empty($userMail) && !empty($userPassword) && !is_numeric($userName) && !is_numeric($userSurName) && !is_numeric($userMail))
-		{
-
-			//save to database
-			$userID = random_num(20);
-			$query = "insert into accounts (userID,name,surname,mail,password) values ('$userID','$userName','$userSurName','$userMail','$userPassword')";
-
-			mysqli_query($con, $query);
-
-			header("Location: /account/login.php");
-			die;
-		}else
-		{
-			echo "Please enter some valid information!";
-		}
-	}
-?>
 
 
 <!doctype html> 
@@ -66,6 +39,7 @@ session_start();
 </head>
 <body>
 	<?php include($_SERVER['DOCUMENT_ROOT'].'/blocks/nav.php'); ?>
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/register_code.php'); ?>
 <!--	<?php echo($currentPage); ?>-->
 	
 	<div class="login-page">
@@ -85,7 +59,7 @@ session_start();
 					 <div class="border"></div>
 				</div>
 				<div class="textbox">
-					 <input type="text" placeholder="mail" name="userMail"/>
+					 <input type="email" placeholder="mail" name="userMail"/>
 					 <div class="border"></div>
 				</div>
 				
@@ -94,10 +68,10 @@ session_start();
 					 <div class="border"></div>
 				</div>
 				
-				<!-- <div class="textbox">
+				 <div class="textbox">
 					 <input type="password" placeholder="wachtwoord herhalen" name="userPasswordRepeat"/>
 					 <div class="border"></div>
-				</div> -->
+				</div> 
 				
 				
 				<button id="button">Register</button>
@@ -108,5 +82,10 @@ session_start();
 		</div>
 	</div>
 
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 </body>
 </html>

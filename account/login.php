@@ -1,79 +1,15 @@
 
 <?php 
+	session_start();
+
 	$currentPage = 'Login';
-	$navbarTop = false;
+	$navbarTop = false;	
 
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_connection.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_functions.php');
+
+	$user_data = verifyAccount($con, 0);
 ?>
-<?php 
-
-session_start();
-
-	include($_SERVER['DOCUMENT_ROOT'].'/account/account_connection.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/account/account_functions.php');
-
-
-	if($_SERVER['REQUEST_METHOD'] == "POST") 		
-	{
-
-		
-		//something was posted
-		$userMail = $_POST['userMail'];					
-//		$userMail = 'klompmans@gmail.com';
-		$userPassword = $_POST['userPassword'];	
-//		$userPassword = 'klompie';
-
-		if(!empty($userMail) && !empty($userPassword) && !is_numeric($userMail))
-		{
-
-			//read from database
-			$query = "select * from accounts where mail = '$userMail' limit 1";
-			$result = mysqli_query($con, $query);
-
-			if($result)
-			{
-				if($result && mysqli_num_rows($result) > 0)
-				{
-
-					$userData = mysqli_fetch_assoc($result);
-					
-					
-					
-					if($userData['password'] === $userPassword)
-					{
-						
-						$_SESSION['userID'] = $userData['userID'];
-						$_SESSION['userClearance'] = $userData['clearance'];
-						$_SESSION['userName'] = $userData['name'];
-						$_SESSION['userSurname'] = $userData['surname'];
-						header("Location: /account/index.php");
-						die;
-					}
-				}
-			}
-			
-			echo "wrong username or password!";
-		}else
-		{
-			echo "wrong username or password!";
-		}
-	}
-
-?>
-	<?php 
-
-//		$query = "select * from accounts where mail = 'klompmans@gmail.com' limit 1";
-//		$result = mysqli_query($con, $query);
-//		$userData = mysqli_fetch_assoc($result);
-//	
-//		echo($_SESSION['userID']); 
-//		echo($userData['userID']);
-//	
-//		$_SESSION['userID'] = $userData['userID'];
-//	
-//		echo($_SESSION['userID']); 
-	?>
-
-
 
 
 <!doctype html> 
@@ -100,8 +36,10 @@ session_start();
 	<meta property="og:image" content="/img/tertair.png">
 	
 </head>
+	
 <body>
 	<?php include($_SERVER['DOCUMENT_ROOT'].'/blocks/nav.php'); ?>
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/login_code.php'); ?>
 <!--	<?php echo($currentPage); ?>-->
 <!--	<?php echo($_SESSION['userID']); ?>-->
 
@@ -115,7 +53,7 @@ session_start();
 				<input type="password" placeholder="password"/>
 -->
 				<div class="textbox">
-					 <input type="text" placeholder="mail" name="userMail"/>
+					 <input type="email" placeholder="mail" name="userMail" contenteditable="false"/>
 					 <div class="border"></div>
 				</div>
 				<div class="textbox">
@@ -132,5 +70,11 @@ session_start();
 		</div>
 	</div>
 
+	
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 </body>
 </html>

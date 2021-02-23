@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.login-page{
+	margin: 100px auto 100px;
+}
+
+div.userAccount {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+
+/*	justify-content: center;*/
+	
+/*	height: 30px;*/
+}
+
+div.userAccount h1 {
+	margin: 15px 0;
+}
+
+div.userAccount a {
+	font-size: 30px;	
+	margin-left: auto;
+	margin-top: 5px;
+/*	align-self: flex-end;*/
+	transition: 0.15s ease-in-out color;
+	color: var(--mla-lila);
+
+}
+
+div.userAccount a:hover, div.userAccount a:active, div.userAccount a:focus {
+	color: var(--mla-blauw-paars);
+}

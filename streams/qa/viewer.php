@@ -3,8 +3,13 @@
 	session_start();
 //	echo session_id();
 
-	$currentPage = 'Q&A';
-	$navbarTop = true;
+	$currentPage = 'Q&A Viewer';
+	$navbarTop = true;	
+
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_connection.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_functions.php');
+
+	$user_data = verifyAccount($con, 0);
 ?>
 
 
@@ -14,8 +19,9 @@
 
 	<meta charset="utf-8">
 
-	<link rel="stylesheet" href="\css\styles.css">
-	<link rel="stylesheet" href="\css\nav.css">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/nav.css">
+	<link rel="stylesheet" href="/css/qa_page.css">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -33,8 +39,9 @@
 </head>
 <body>
 	<?php include($_SERVER['DOCUMENT_ROOT'].'/blocks/nav.php'); ?>
-	<?php echo($currentPage); ?>
+<!--	<?php echo($currentPage); ?>-->
 	
+<!--	<?php echo($_SESSION['userID']); ?>-->
 
 </body>
 </html>

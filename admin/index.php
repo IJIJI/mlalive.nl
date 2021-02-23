@@ -4,12 +4,12 @@
 //	echo session_id();
 
 	$currentPage = 'Admin';
-	$navbarTop = true;
+	$navbarTop = true;	
 
-	include($_SERVER['DOCUMENT_ROOT'].'/account/account_connection.php');
-	include($_SERVER['DOCUMENT_ROOT'].'/account/account_functions.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_connection.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_functions.php');
 
-	$user_data = check_admin($con);
+	$user_data = verifyAccount($con, 15);
 ?>
 
 <?php 
