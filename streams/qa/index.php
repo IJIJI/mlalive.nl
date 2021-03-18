@@ -83,12 +83,12 @@
 						<a id="'.$row['tableID'].'" class="qaItem" href="/streams/qa/viewer.php?tableID='.$row['tableID'].'">
 							<div class="qaTitle">
 								<h1>'.$row['name'].'</h1>
-								<p>'.$row['date'].'</p>	
+								<p>'.date("d-m-Y H:i", strtotime($row['date'])).'</p>	
 							</div>'.
 							(($user_data['clearance'] >= 15)?'
 							<div class="qaDetails">
 								<p>'.$creator.'</p>	
-								<p>'.$row['createdTime'].'</p>
+								<p>'.date("d-m-Y H:i", strtotime($row['createdTime'])).'</p>
 							</div>':"").'
 						</a>
 					');

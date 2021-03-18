@@ -86,7 +86,7 @@
 						<div id="'.$row['tableID'].'" class="streamItem'.((!$row['approved'])?' notApproved':"").'">
 							<div class="streamTitle">
 								<h1>'.$row['name'].'</h1>
-								<p>'.$row['date'].'</p>	
+								<p>'.date("d-m-Y H:i", strtotime($row['date'])).'</p>	
 							</div>
 							<div class="streamButtons">'.
 								(($user_data['clearance'] >= 16)?'

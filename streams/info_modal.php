@@ -28,7 +28,7 @@
 						<a class="modalRight" href="?"><span style="font-size: inherit;" class="material-icons">close</span></a>
 					</div>
 					<div class="modalRow">
-						<p><?php echo $streamData['date']; ?></p>
+						<p><?php echo date("d-m-Y H:i", strtotime($streamData['date'])) ?></p>
 						<p><b><?php echo $streamData['location']; ?></b></p>
 					</div>
 					
@@ -54,7 +54,7 @@
 							<p><b>By</b></p>
 							<p><?php echo idUserFullName($con, $streamData['creator']); ?></p>
 							<p><b>at</b></p>
-							<p><?php echo $streamData['createdTime']; ?></p>
+							<p><?php echo date("d-m-Y H:i", strtotime($streamData['createdTime'])) ?></p>
 						</div>
 					</div>						
 
@@ -65,7 +65,7 @@
 							<p><b>By</b></p>
 							<p><?php echo idUserFullName($con, $streamData['approvedBy']); ?></p>
 							<p><b>at</b></p>
-							<p><?php echo $streamData['approvedAt']; ?></p>
+							<p><?php echo date("d-m-Y H:i", strtotime($streamData['approvedAt'])) ?></p>
 						</div>						
 						<?php else: ?>
 						<p><b>Not approved.</b></p>
@@ -78,7 +78,7 @@
 							<p><b>By</b></p>
 							<p><?php echo idUserFullName($con, $streamData['lastEditedBy']); ?></p>
 							<p><b>at</b></p>
-							<p><?php echo $streamData['lastEditedAt']; ?></p>
+							<p><?php echo date("d-m-Y H:i", strtotime($streamData['lastEditedAt'])) ?></p>
 						</div>
 						<?php endif; ?>
 					</div>		

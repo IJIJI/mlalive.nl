@@ -120,7 +120,7 @@
 				<input type="text" placeholder="mail"/>
 				<input type="password" placeholder="password"/>
 	-->
-				<p><strong><?php echo $streamData['name']; ?></strong> <?php echo $streamData['date']; ?></p>
+				<p><strong><?php echo $streamData['name']; ?></strong> <?php echo date("d-m-Y H:i", strtotime($streamData['date'])) ?></p>
 				<div class="textbox">
 				 	<input type="password" placeholder="password" name="userPassword"/>
 				 	<div class="border"></div>
