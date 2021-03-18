@@ -19,13 +19,13 @@
 	<main class="modalBackground" >
 	</main>
 -->
-	<main class="modal" onclick="event.stopPropagation();window.location.href='?';">
+	<main class="modal" onclick="event.stopPropagation();window.location.href='?#<?php echo $streamData['tableID']; ?>';">
 <!--		<div>-->
 			<div class="modalForm" onclick="event.stopPropagation();">
 				<form action="post" class="modalForm">
 					<div class="modalRow">
 						<h1><?php echo $streamData['name']; ?></h1>
-						<a class="modalRight" href="?"><span style="font-size: inherit;" class="material-icons">close</span></a>
+						<a class="modalRight" href="?#<?php echo $streamData['tableID']; ?>"><span style="font-size: inherit;" class="material-icons">close</span></a>
 					</div>
 					<div class="modalRow">
 						<p><?php echo date("d-m-Y H:i", strtotime($streamData['date'])) ?></p>
@@ -86,4 +86,7 @@
 			</div>
 <!--		</div>-->
 	</main>
+	
+
+
 	<?php endif; ?>
