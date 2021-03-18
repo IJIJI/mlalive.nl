@@ -46,13 +46,15 @@ html {
 	--main-border-radius: 7px;
 	--small-item-border-radius: 3px;
 	--large-item-border-radius: 5px;
+	
+	scroll-behavior: smooth;
 }
 
 
 body {
 	margin: 0;
 	font-family: Raleway, Arial;
-	
+	font-display: fallback;
 }
 
 a {
