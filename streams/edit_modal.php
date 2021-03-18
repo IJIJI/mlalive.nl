@@ -77,7 +77,7 @@ if(	isset($_POST['streamName']) && isset($_POST['streamLocation']) && isset($_PO
 	<main class="modalBackground" >
 	</main>
 -->
-	<main class="modal" onclick="event.stopPropagation();window.location.href='?';">
+	<main class="modal" onclick="event.stopPropagation();window.location.href='?#<?php echo $streamData['tableID']; ?>';">
 <!--		<div>-->
 			<div class="modalForm" onclick="event.stopPropagation();">
 				<form method="post" class="modalForm" autocomplete="off">
@@ -86,7 +86,7 @@ if(	isset($_POST['streamName']) && isset($_POST['streamLocation']) && isset($_PO
 
 					<div class="modalRow">
 						<h1>Edit</h1>
-						<a class="modalRight" href="?"><span style="font-size: inherit;" class="material-icons">close</span></a>
+						<a class="modalRight" href="?#<?php echo $streamData['tableID']; ?>"><span style="font-size: inherit;" class="material-icons">close</span></a>
 					</div>
 					<div class="modalInputBox">
 						<label for="inputVideoName">Name:<span class="requiredStar">*</span></label>
@@ -166,4 +166,10 @@ if(	isset($_POST['streamName']) && isset($_POST['streamLocation']) && isset($_PO
 			</div>
 <!--		</div>-->
 	</main>
+	<?php elseif (isset($_GET['modal']) && $_GET['modal'] == 'edit' && isset($_GET['tableID']) && !empty($_GET['tableID'])): 
+								
+								
+	header("location: ?modal=info&tableID=".$_GET['tableID']);
+?>
+
 	<?php endif; ?>
