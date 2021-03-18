@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body{
+/*	overflow-x: hidden;*/
+	min-height: 100%;
+	width: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background-color: rgba(0, 0, 0, 0.105);
+	
+}
+
+
+main.home {
+	flex-grow: 1;
+	width: 100%;
+	margin: 0 auto 100px;
+/*	padding: calc(75px + 100px);*/
+	display: flex;
+	flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+	position: relative;
+/*	border: 1px dotted red;*/
+}
+
+div.home {
+/*	position: absolute;*/
+	flex-grow: 0;
+	width: 80%;
+	height: 80%;
+	
+	background-color: white;
+	
+	display: flex;
+	flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+main.home img {
+	width: 50%;
+	
+}

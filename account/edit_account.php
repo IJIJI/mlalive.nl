@@ -40,8 +40,10 @@
 
 </head>
 <body>
-	<?php include($_SERVER['DOCUMENT_ROOT'].'/blocks/nav.php'); ?>
+	
 	<?php include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/edit_account_code.php'); ?>
+	<?php include($_SERVER['DOCUMENT_ROOT'].'/blocks/nav.php'); ?>
+	
 <!--	<?php echo($currentPage); ?>-->
 	
 	<div class="login-page">
@@ -54,20 +56,23 @@
 				</div>
 
 				<div class="textbox">
-					 <input type="text" placeholder="voornaam" value="<?php echo($user_data['name']); ?>" name="userName"/>
+					 <input type="text" placeholder="Name" value="<?php echo($user_data['name']); ?>" name="userName"/>
 					 <div class="border"></div>
 				</div>
 				<div class="textbox">
-					 <input type="text" placeholder="achternaam" value="<?php echo($user_data['surname']); ?>" name="userSurName"/>
+					 <input type="text" placeholder="Surname" value="<?php echo($user_data['surname']); ?>" name="userSurName"/>
 					 <div class="border"></div>
 				</div>
 				<div class="textbox">
-					 <input type="email" placeholder="mail" value="<?php echo($user_data['mail']); ?>" name="userMail"/>
+					 <input type="email" placeholder="Mail" value="<?php echo($user_data['mail']); ?>" name="userMail"/>
 					 <div class="border"></div>
 				</div>
-				
 				<div class="textbox">
-					 <input type="password" placeholder="wachtwoord" name="userPassword"/>
+					 <input type="tel" placeholder="Tel." value="<?php echo($user_data['tel']); ?>" name="userTel"/>
+					 <div class="border"></div>
+				</div>				
+				<div class="textbox">
+					 <input type="password" placeholder="Password" name="userPassword"/>
 					 <div class="border"></div>
 				</div>
 				
@@ -80,15 +85,15 @@
 
 				
 				<div class="textbox">
-					 <input type="password" placeholder="oud wachtwoord" name="userPassword"/>
+					 <input type="password" placeholder="Old Password" name="userPassword"/>
 					 <div class="border"></div>				
 				</div>
 				<div class="textbox">
-					 <input type="password" placeholder="nieuw wachtwoord" name="userNewPassword"/>
+					 <input type="password" placeholder="New Password" name="userNewPassword"/>
 					 <div class="border"></div>				
 				</div>
 				<div class="textbox">
-					 <input type="password" placeholder="nieuw wachtwoord herhalen" name="userNewPasswordRepeat"/>
+					 <input type="password" placeholder="Repeat New Password" name="userNewPasswordRepeat"/>
 					 <div class="border"></div>				
 				</div>
 				

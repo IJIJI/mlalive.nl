@@ -4,18 +4,26 @@
 <nav <?php if ($navbarTop) {echo 'id="top"';} ?>>
 	<div class="nav">
 		<div class="navImg">
-			<a class="navImg" href="/index.php"><img src="/img/logo_lowres.png" alt="MLA logo"  onerror="this.src='../img/logo_lowres.png';"/></a>
+<!--			<a class="navImg" href="/index.php"><img src="/img/logo_lowres.png" alt="MLA logo"  onerror="this.src='../img/logo_lowres.png';"/></a>-->
+			<a class="navImg" href="#"><img src="/img/logo_lowres.png" alt="MLA logo"  onerror="this.src='../img/logo_lowres.png';"/></a>
 		</div>
 		<ul class="nav">
 
-			<li class="nav"><a class="nav" <?php if ($currentPage === 'Home') {echo 'id="active"';} ?> href="/index.php">Home</a></li>
-			<li class="nav"><a class="nav" <?php if ($currentPage === 'Q&A' || $currentPage === 'Q&A Viewer' || $currentPage === 'Q&A Archive') {echo 'id="active"';} ?> href="/streams/qa/index.php">Q&amp;A</a></li>
+<!--			<li class="nav"><a class="nav" <?php if ($currentPage === 'Home') {echo 'id="active"';} ?> href="/index.php">Home</a></li>-->
 			
-			<?php if (isset($_SESSION['userID']) && $user_data['clearance'] >= 1): ?>
-			<li class="nav"><a class="nav" <?php if ($currentPage === 'Streams') {echo 'id="active"';} ?> href="/streams/index.php">Streams</a></li>
+			<?php if (!isset($_SESSION['userID'])): ?>
+			<li class="nav"><a class="nav" <?php if ($currentPage === 'Q&A' || $currentPage === 'Q&A Viewer' || $currentPage === 'Q&A Archive') {echo 'id="active"';} ?> href="/streams/qa/index.php">Q&amp;A</a></li>
 			<?php endif; ?>
 			
-			<?php if (isset($_SESSION['userID']) && $user_data['clearance'] >= 15): ?>
+			<?php if (isset($_SESSION['userID']) && $user_data['clearance'] >= 1): ?>
+			<li class="nav"><a class="nav" <?php if ($currentPage === 'Streams' || $currentPage === 'Archive' || $currentPage === 'Delete') {echo 'id="active"';} ?> href="/streams/index.php">Streams</a></li>
+			<?php endif; ?>
+			
+			<?php if (isset($_SESSION['userID']) && $user_data['clearance'] >= 5): ?>
+			<li class="nav"><a class="nav" <?php if ($currentPage === 'Request') {echo 'id="active"';} ?> href="/streams/request.php">Request</a></li>
+			<?php endif; ?>
+			
+			<?php if (isset($_SESSION['userID']) && $user_data['clearance'] >= 15 && false): ?>
 			<li class="nav"><a class="nav" <?php if ($currentPage === 'Admin') {echo 'id="active"';} ?> href="/admin/index.php">Admin</a></li>
 			<?php endif; ?>
 			

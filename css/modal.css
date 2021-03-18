@@ -1,0 +1,253 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+main.modal{
+	position: absolute;
+	top: 0;
+	min-height: 100%;
+/*	overflow-y: auto;*/
+	width: 100%;
+	z-index: 90;
+	
+/*	padding-top: 250px;*/
+	
+	background-color: rgba(0, 0, 0, 0.5);
+	
+	display: flex;
+	flex-grow: 1;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+main.modal h1{
+	font-size: 40px;
+/*	margin: 0 0 10px 0;*/
+	margin: 0;
+}
+
+main.modal h2{
+	font-size: 22px;
+	margin: 0 0 10px;
+}
+
+main.modal p{
+	font-size: 17.5px;
+	margin: 0 6px 0 0;
+}
+
+.modalRight{
+	font-size: 30px;
+	margin-left: auto;
+	margin-top: 5px;
+	color: var(--mla-lila);
+	transition: 0.15s ease background, 0.15s ease color;
+}
+
+a.modalRight:hover{
+
+	color: var(--mla-blauw-paars);
+}
+
+div.modalForm{
+	
+	width: 55%;
+	margin: 250px 0 200px;
+	padding: 50px 75px 60px;
+	background-color: white;
+	border-radius: var(--large-item-border-radius);
+}
+
+form.modalForm{
+		
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	align-items: flex-start;
+}
+form.modalForm > div{
+	margin: 10px 0;	
+}
+
+div.modalRow {
+	display: flex; 
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	width: 100%;
+}
+
+/*!*/
+div.modalInputBox, div.modalCheckBox{
+	display: flex; 
+	flex-direction: column;
+/*	flex-wrap: nowrap;*/
+	align-items: flex-start;
+	width: 100%;
+/*	margin: 15px 0 0 0;*/
+}
+
+div.modalCheckBox input{
+/*	margin-left: auto;*/
+/*	width: 50px;*/
+}
+
+.modalButton{
+	width: 100%;
+}
+
+/*!*/
+
+div.modalTextbox {
+	box-sizing: border-box;
+	width: 100%;
+	position: relative;
+/*	background: #ccc;*/
+	z-index: 1;
+	border-radius: 6px;
+	overflow: hidden;
+	padding: 2px;
+/*	margin: 15px auto 0;*/
+/*	margin: 0.5rem 0;*/
+}
+
+
+.border {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 50%;
+	width: 0%;
+	height: 100%;
+	background: var(--mla-blauw-paars);
+	z-index: -1;
+	transition: height 0.2s ease, width 0.2s 0.06s ease, left 0.2s 0.06s ease;
+}
+
+input:focus~.border, textarea:focus~.border {
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*!*/
+
+div.modalTextbox input, div.modalTextbox textarea, .modalButton{
+	width: 100%;
+/*	padding: 0;*/
+ -webkit-box-sizing:border-box;
+ -moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	font-family: Raleway, Arial;
+	font-size: 20px;
+	
+	outline: 0;
+	border: 1px solid grey;
+	border-radius: var(--small-item-border-radius);
+	
+	display: block;
+	padding: 15px;
+}
+div.modalTextbox textarea{
+	resize: vertical;
+	height: 125px;
+	display: block;
+}
+
+.modalButton{
+	text-transform: uppercase;
+  outline: 0;
+	background: var(--mla-lila);
+/*	background: white;*/
+	color: black;
+	transition: 0.15s ease-in-out background, 0.15s ease-in-out color;
+	cursor: pointer;
+	text-align: center;
+}
+
+.modalButton:hover, .modalButton:active, .modalButton:focus {
+	background: var(--mla-blauw-paars);
+	color: white;
+}
+
+.warningButton{
+/*	font-weight: 500;*/
+	background: white;
+	color: var(--mla-roze);
+	border: 0;
+}
+
+.warningButton:hover, .warningButton:active, .warningButton:focus {
+	background: white;
+	color: var(--mla-paars);
+}
+
+/*CHECK BOXES*/
+
+.approvedCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+	margin: 10px 0 10px;
+}
+
+
+.approvedCheckbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.approvedCheckboxSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--mla-roze);
+  -webkit-transition: .4s;
+  transition: .4s;
+	
+	box-sizing: content-box;
+	border: 1px solid grey;
+}
+
+.approvedCheckboxSlider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+
+input:checked + .approvedCheckboxSlider {
+  background-color: var(--mla-groen);
+}
+
+input:focus + .approvedCheckboxSlider {
+  box-shadow: 0 0 1px var(--mla-groen);
+}
+
+input:checked + .approvedCheckboxSlider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+}
+
+/* Rounded sliders */
+.approvedCheckboxSlider.round {
+  border-radius: 34px;
+}
+
+.approvedCheckboxSlider.round:before {
+  border-radius: 50%;
+}

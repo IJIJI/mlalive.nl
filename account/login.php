@@ -65,7 +65,7 @@
 <!--				<input class="submitButton" id="button" type="submit" value="Login">-->
 				<button id="button">login</button>
 				<p class="message">Not registered?</p>
-				<a class="message" href="/account/register.php">Create an account</a>
+				<a class="message" href="/account/register.php?<?php echo $_SERVER['QUERY_STRING']?>">Create an account</a>
 			</form>
 		</div>
 	</div>

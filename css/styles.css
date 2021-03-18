@@ -14,6 +14,7 @@
 
 ::-webkit-scrollbar {
   width: 8px;
+	cursor: pointer;
 }
 ::-webkit-scrollbar-track {
   background: rgba(0,0,0,0.00);
@@ -24,6 +25,10 @@
 }
 ::-webkit-scrollbar-thumb:active {
   background: var(--mla-blauw-paars);
+}
+
+::selection {
+	background: var(--mla-lila);
 }
 
 html {
@@ -54,4 +59,11 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 	color: black;
+}
+
+
+.requiredStar {
+	font-size: inherit;
+	font-weight: 800;
+	color: var(--mla-roze);
 }

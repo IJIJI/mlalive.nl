@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+		background-color: var(--mla-licht-grijs);
+}
+
+
+main.request{
+/*	position: absolute;*/
+/*	top: 0;*/
+	min-height: 100%;
+/*	overflow-y: auto;*/
+	width: 100%;
+/*	z-index: 90;*/
+	
+/*	padding-top: 250px;*/
+	
+	display: flex;
+	flex-grow: 1;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+div.request{
+	
+	width: 55%;
+	margin: 100px 0 200px;
+	padding: 50px 75px 60px;
+	background-color: white;
+	border-radius: var(--large-item-border-radius);
+}
+
+
+main.request h1{
+	font-size: 40px;
+/*	margin: 0 0 10px 0;*/
+	margin: 0;
+}
+
+main.request h2{
+	font-size: 25px;
+	margin: 0 0 10px;
+}
+
+main.request p{
+	font-size: 17.5px;
+	margin-right: 6px;
+}
+
+/*
+p.modalRight{
+	font-size: 30px;
+	margin-left: auto;
+	margin-top: 5px;
+	color: var(--mla-lila);
+	transition: 0.15s ease background, 0.15s ease color;
+}
+*/

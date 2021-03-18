@@ -5,12 +5,13 @@
 
 
 //	if($_SERVER['REQUEST_METHOD'] == "POST")
-	if(isset($_POST['userName']) && isset($_POST['userSurName']) && isset($_POST['userMail']) && isset($_POST['userPassword']))
+	if(isset($_POST['userName']) && isset($_POST['userSurName']) && isset($_POST['userMail']) && isset($_POST['userTel']) && isset($_POST['userPassword']))
 	{
 		//something was posted
 		$userName = mysqli_real_escape_string($con, $_POST['userName']);
 		$userSurName = mysqli_real_escape_string($con, $_POST['userSurName']);
 		$userMail = mysqli_real_escape_string($con, $_POST['userMail']);
+		$userTel = mysqli_real_escape_string($con, $_POST['userTel']);
 		$userPassword = mysqli_real_escape_string($con, $_POST['userPassword']);
 		$userPasswordRepeat = mysqli_real_escape_string($con, $_POST['userPasswordRepeat']);
 
@@ -33,15 +34,21 @@
 			}
 			elseif ($userPassword === $userPasswordRepeat){
 				//save to database
-				$userID = random_num(20);
-				$query = "insert into accounts (userID,name,surname,mail,password) values ('$userID','$userName','$userSurName','$userMail','$userPassword')";
+				$userID = random_num(18);
+				
+				if (!empty($userTel)){
+					$query = "insert into accounts (userID,name,surname,mail,tel,password) values ('$userID','$userName','$userSurName','$userMail','$userTel','$userPassword')";
+				}
+				else{
+					$query = "insert into accounts (userID,name,surname,mail,password) values ('$userID','$userName','$userSurName','$userMail','$userPassword')";
+				}
 
 				mysqli_query($con, $query);
 
 				sendMessage("Succes! Awaiting approval by admin.", 'succes');
 			}
 			else{
-				
+				errorMessage("Passwords do not match!");
 				
 			}
 

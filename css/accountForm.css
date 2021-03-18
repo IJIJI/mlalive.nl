@@ -8,28 +8,10 @@ html, body{
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	background-color: rgba(0, 0, 0, 0.105);
+	background-color: var(--mla-licht-grijs);
 	
 }
-div.alertMessage{
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-	top: 75px;
-	left: 0;
-	right: 0;
-	position: fixed;
-	z-index: 50;
-}
-div.alertMessage h1{
-	font-family: Raleway, Manrope, Arial;
-	margin: 5px 10px;
-	font-size: 20px;
-}
-div.alertMessage.error{
-	background-color: var(--mla-roze);
-}
-div.alertMessage.succes{
-	background-color: var(--mla-groen);
-}
+
 
 div.login-page {
 	flex-grow: 1;
@@ -132,10 +114,6 @@ div.textbox ::placeholder {
 
 /*!*/
 
-::selection {
-	background: #708090;
-	color: #fff !important;
-}
 
 .textbox {
 	position: relative;

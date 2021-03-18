@@ -4,7 +4,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/blocks/error_message.php');
 
 
 if(isset($_GET['redirect']) && !empty($_GET['redirect'])){
-	$redirect = $_GET['redirect'];
+	$redirect = urldecode($_GET['redirect']);
 }
 
 if(isset($_SESSION['userID'])){
@@ -55,7 +55,7 @@ elseif(isset($_POST['userMail']) && isset($_POST['userPassword']))
 							die;
 						}
 						else{
-							header("Location: /account/index.php");
+							header("Location: /streams/index.php");
 							die;
 						}
 					}

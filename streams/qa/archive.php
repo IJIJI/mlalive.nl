@@ -3,14 +3,13 @@
 	session_start();
 //	echo session_id();
 
-	$currentPage = 'Home';
-	$navbarTop = true;
+	$currentPage = 'Archive';
+	$navbarTop = true;	
 
 	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_connection.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_functions.php');
 
-
-	$user_data = verifyAccount($con, 0);
+	$user_data = verifyAccount($con, 1);
 ?>
 
 
@@ -20,9 +19,8 @@
 
 	<meta charset="utf-8">
 
-	<link rel="stylesheet" href="css\styles.css">
-	<link rel="stylesheet" href="css\nav.css">
-	<link rel="stylesheet" href="css\home.css">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/nav.css">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -40,25 +38,8 @@
 </head>
 <body>
 	<?php include($_SERVER['DOCUMENT_ROOT'].'/blocks/nav.php'); ?>
-<!--	<?php echo($currentPage); ?>-->
+	<?php echo($currentPage); ?>
 	
 <!--	<?php echo($_SESSION['userID']); ?>-->
-	
-<?php // Permanent 301 Redirect via PHP
-	header("HTTP/1.1 301 Moved Permanently");
-	header("Location: /streams/index.php");
-	exit();
-?>
-	
-	<main class="home">
-		<div class="home">
-			<img src="/img/logo_live.svg" alt="">
-			<h1>Web Portaal</h1>
-			<div class="home">
-				<a href="/account/login.php">Login</a>
-				<a href="/account/login.php">Register</a>
-			</div>
-		</div>
-	</main>
 </body>
 </html>

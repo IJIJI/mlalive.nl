@@ -7,11 +7,12 @@ if(!isset($_SESSION['userID'])){
 	die;
 
 }
-elseif(	isset($_POST['userName']) && isset($_POST['userSurName']) && isset($_POST['userMail']) && isset($_POST['userPassword'])){
+elseif(	isset($_POST['userName']) && isset($_POST['userSurName']) && isset($_POST['userMail']) && isset($_POST['userTel']) && isset($_POST['userPassword'])){
 
 	$userName = mysqli_real_escape_string($con, $_POST['userName']);
 	$userSurName = mysqli_real_escape_string($con, $_POST['userSurName']);
 	$userMail = mysqli_real_escape_string($con, $_POST['userMail']);
+	$userTel = mysqli_real_escape_string($con, $_POST['userTel']);
 	$userPassword = mysqli_real_escape_string($con, $_POST['userPassword']);
 
 	if(	!empty($userName) && !empty($userSurName) && !empty($userMail) && !empty($userPassword) && 
@@ -32,7 +33,12 @@ elseif(	isset($_POST['userName']) && isset($_POST['userSurName']) && isset($_POS
 			{
 //				$userID = random_num(20);
 //				$query = "insert into accounts (userID,name,surname,mail,password) values ('$userID','$userName','$userSurName','$userMail','$userPassword')";
-				$query = "update accounts set name='$userName', surname='$userSurName', mail='$userMail' WHERE userID = $id";
+				if (!empty($userTel)){
+					$query = "update accounts set name='$userName', surname='$userSurName', mail='$userMail', tel='$userTel' WHERE userID = $id";
+				}
+				else{
+					$query = "update accounts set name='$userName', surname='$userSurName', mail='$userMail' WHERE userID = $id";
+				}
 				
 				
 				mysqli_query($con, $query);

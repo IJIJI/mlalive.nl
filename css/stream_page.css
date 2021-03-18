@@ -13,7 +13,7 @@ html, body{
 	
 }
 
-main.qaList {
+main.streamList {
 
 	width: 75%;
 	margin: 100px auto;
@@ -32,14 +32,13 @@ main.qaList {
 }
 
 @media screen and (max-width: 700px) {
-	main.qaList {
-		margin: 20px auto;
-		width: 90%;
+	main.streamList {
+		width: 100%;
 	}
 }
 /*!*/
 
-div.qaMainTitle {
+div.streamMainTitle {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -47,26 +46,26 @@ div.qaMainTitle {
 	margin: 30px 30px 0;
 }
 
-div.qaMainTitle h1{
+div.streamMainTitle h1{
 	font-size: 50px;	
 	margin: 0;
 	
 }
 
-div.qaMainTitle a{
+div.streamMainTitle a{
 	font-size: 40px;	
 	margin: 0 0 0 auto;
 	
 	color: var(--mla-lila);
-	transition: 0.15s ease-in-out color;
+	transition: 0.15s ease color;
 }
 
-div.qaMainTitle a:hover{
+div.streamMainTitle a:hover{
 	color: var(--mla-blauw-paars);
 }
 /*!*/
 
-a.qaItem {
+div.streamItem {
 	margin: 20px;
 	margin-bottom: 0;
 	height: 150px;
@@ -76,7 +75,7 @@ a.qaItem {
 	border: 2px solid var(--mla-licht-grijs);
 	border-radius: var(--large-item-border-radius);
 	
-	transition: 0.15s ease-in-out border;
+	transition: 0.15s ease border;
 	
 	display: flex;
 	flex-wrap: nowrap;
@@ -87,17 +86,17 @@ a.qaItem {
 	overflow: hidden;
 }
 
-a.qaItem:hover, a.qaItem:active, a.qaItem:focus {
+div.streamItem:hover, div.streamItem:active, div.streamItem:focus {
 	border-color: var(--mla-blauw-paars);
 }
 
-a.qaItem.notApproved {
+div.streamItem.notApproved {
 	background-color: var(--mla-roze);
 }
 	
 /*!*/
 
-div.qaTitle {
+div.streamTitle {
 /*	align-self: flex-start;*/
 	
 	display: flex;
@@ -106,15 +105,15 @@ div.qaTitle {
   align-items: flex-start;
 }
 
-div.qaTitle * {
+div.streamTitle * {
 	margin: 12.5px 0;
 }
 
-div.qaTitle h1{
+div.streamTitle h1{
 	font-size: 30px;	
 }
 
-div.qaTitle p{
+div.streamTitle p{
 	font-size: 25px;
 }
 
@@ -124,26 +123,6 @@ p.qaDescription{
 	
 }
 
-/*!*/
-
-div.qaDetails {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-  align-items: flex-end;
-}
-
-div.qaDetails * {
-	margin: 15px 0;
-}
-
-div.qaDetails h1{
-	font-size: 17.5px;	
-}
-
-div.qaDetails p{
-	font-size: 17.5px;
-}
 
 /*!*/
 
@@ -155,5 +134,14 @@ div.streamButtons {
 }
 
 div.streamButtons a{
-	display: block;
+	font-size: 40px;
+	margin: 10px 7.5px 0;
+	padding: 7.5px;
+	
+	color: var(--mla-lila);
+	transition: 0.15s ease color;
+}
+
+div.streamButtons a:hover, div.streamButtons a:active, div.streamButtons a:focus {
+	color: var(--mla-blauw-paars);
 }

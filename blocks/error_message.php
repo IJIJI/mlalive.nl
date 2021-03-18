@@ -18,6 +18,9 @@ function sendMessage($message, $type){
 			case 'succes':
 				$messageClass = "alertMessage succes";
 				break;
+			case 'warning':
+				$messageClass = "alertMessage warning";
+				break;
 		
 	}
 	

@@ -12,11 +12,14 @@ function verifyAccount($con, $minClearance){
 
 			$user_data = mysqli_fetch_assoc($result);
 			
-			if($user_data['clearance'] <= 0){
+			if(false){
+				
+			}
+			elseif($user_data['clearance'] <= 0){
 				unset($_SESSION['userID']);
 				
 				if ($minClearance > 0){
-					header("Location: /account/login.php");
+					header("Location: /account/login.php?redirect=".urlencode($_SERVER['REQUEST_URI']));
 					die;					
 				}
 				
@@ -33,7 +36,7 @@ function verifyAccount($con, $minClearance){
 		return null;
 	}
 	else{
-		header("Location: /account/login.php");
+		header("Location: /account/login.php?redirect=".urlencode($_SERVER['REQUEST_URI']));
 		die;
 	}
 }
@@ -42,14 +45,9 @@ function random_num($length)
 {
 
 	$text = "";
-	if($length < 5)
-	{
-		$length = 5;
-	}
 
-	$len = rand(4,$length);
 
-	for ($i=0; $i < $len; $i++) { 
+	for ($i=0; $i < $length; $i++) { 
 		# code...
 
 		$text .= rand(0,9);
@@ -58,6 +56,33 @@ function random_num($length)
 	return $text;
 }
 
+
+function idUser($con, $userID){
+		$query = "select * from accounts where userID = '$userID' limit 1";
+
+		$creatorResult = mysqli_query($con,$query);
+		if($creatorResult && mysqli_num_rows($creatorResult) > 0)
+		{
+			return $creatorData = mysqli_fetch_assoc($creatorResult);
+		}
+		else{
+			return null;
+		}
+}
+
+function idUserName($con, $userID) {
+	$userData = idUser($con, $userID);
+	return $userData['name'];
+}
+
+function idUserSurname($con, $userID) {
+	$userData = idUser($con, $userID);
+	return $userData['surname'];
+}
+
+function idUserFullName($con, $userID) {
+	return idUserName($con, $userID)." ".idUserSurname($con, $userID);
+}
 
 //vv loesoe
 

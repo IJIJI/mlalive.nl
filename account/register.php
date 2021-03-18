@@ -49,27 +49,30 @@
 <!--
 				<input type="text" placeholder="mail"/>
 				<input type="password" placeholder="password"/>
--->
+-->	
 				<div class="textbox">
-					 <input type="text" placeholder="voornaam" name="userName"/>
+					 <input type="text" placeholder="Name" name="userName" />
 					 <div class="border"></div>
 				</div>
 				<div class="textbox">
-					 <input type="text" placeholder="achternaam" name="userSurName"/>
+					 <input type="text" placeholder="Surname" name="userSurName"/>
 					 <div class="border"></div>
 				</div>
 				<div class="textbox">
-					 <input type="email" placeholder="mail" name="userMail"/>
+					 <input type="email" placeholder="Mail" name="userMail"/>
 					 <div class="border"></div>
 				</div>
-				
 				<div class="textbox">
-					 <input type="password" placeholder="wachtwoord" name="userPassword"/>
+					 <input type="tel" placeholder="Tel." name="userTel"/>
+					 <div class="border"></div>
+				</div>
+				<div class="textbox">
+					 <input type="password" placeholder="Password" name="userPassword"/>
 					 <div class="border"></div>
 				</div>
 				
 				 <div class="textbox">
-					 <input type="password" placeholder="wachtwoord herhalen" name="userPasswordRepeat"/>
+					 <input type="password" placeholder="Repeat Password" name="userPasswordRepeat"/>
 					 <div class="border"></div>
 				</div> 
 				
@@ -77,7 +80,7 @@
 				<button id="button">Register</button>
 <!--				<input class="submitButton" id="button" type="submit" value="Register">-->
 				<p class="message">Already registered?</p>
-				<a class="message" href="/account/login.php">Log in to your account</a>
+				<a class="message" href="/account/login.php?<?php echo $_SERVER['QUERY_STRING']?>">Log in to your account</a>
 			</form>
 		</div>
 	</div>
