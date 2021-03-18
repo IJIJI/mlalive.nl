@@ -50,7 +50,7 @@
 		<div class="request" onclick="event.stopPropagation();">
 			<form method="post" class="modalForm">
 					<div class="modalRow">
-						<h2>This function is not yet implemented for non-administrators. Please mail <a href="mailto:request@mlalive.nl">request@mlalive.nl</a> with your request.</h2>
+						<h2>This function is not yet implemented for non-administrators. Please mail <a style="color: var(--mla-lila)" href="mailto:request@mlalive.nl">request@mlalive.nl</a> with your request.</h2>
 					</div>
 			</form>
 		</div>
