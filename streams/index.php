@@ -48,7 +48,7 @@
 	<?php include($_SERVER['DOCUMENT_ROOT'].'/streams/edit_modal.php'); ?>
 
 	
-	<main class="streamList">
+	<main style="height: 300vh" class="streamList">
 		<div class="streamMainTitle">
 			<h1>Streams</h1>
 			
@@ -83,7 +83,8 @@
 
 
 					echo ('
-						<div id="'.$row['tableID'].'" class="streamItem'.((!$row['approved'])?' notApproved':"").'">
+						<div class="idLink" id="'.$row['tableID'].'"></div>
+						<div class="streamItem'.((!$row['approved'])?' notApproved':"").'">
 							<div class="streamTitle">
 								<h1>'.$row['name'].'</h1>
 								<p>'.date("d-m-Y H:i", strtotime($row['date'])).'</p>	
