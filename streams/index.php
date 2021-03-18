@@ -48,7 +48,7 @@
 	<?php include($_SERVER['DOCUMENT_ROOT'].'/streams/edit_modal.php'); ?>
 
 	
-	<main style="height: 300vh" class="streamList">
+	<main  class="streamList">
 		<div class="streamMainTitle">
 			<h1>Streams</h1>
 			
