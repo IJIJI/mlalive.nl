@@ -86,7 +86,7 @@
 
 			$userData = mysqli_fetch_assoc($result);
 
-			if($user_data['password'] === $userPassword)
+			if(password_verify($userPassword, $userData['password']))
 			{
 				
 				$query = "DELETE FROM streams WHERE tableID=".mysqli_real_escape_string($con, $_GET['tableID']);

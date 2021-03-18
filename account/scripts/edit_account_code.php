@@ -29,7 +29,7 @@ elseif(	isset($_POST['userName']) && isset($_POST['userSurName']) && isset($_POS
 
 			$userData = mysqli_fetch_assoc($result);
 
-			if($userData['password'] === $userPassword)
+			if(password_verify($userPassword, $userData['password']))
 			{
 //				$userID = random_num(20);
 //				$query = "insert into accounts (userID,name,surname,mail,password) values ('$userID','$userName','$userSurName','$userMail','$userPassword')";
@@ -78,9 +78,10 @@ elseif (isset($_POST['userPassword']) && isset($_POST['userNewPassword']) && iss
 
 
 
-			if($userData['password'] === $userPassword){
+			if(password_verify($userPassword, $userData['password'])){
 				if($userNewPassword === $userNewPasswordRepeat){
 					
+					$userNewPassword = password_hash($userNewPassword, PASSWORD_BCRYPT);
 					$query = "update accounts set password='$userNewPassword' WHERE userID = $id";
 
 

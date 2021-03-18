@@ -35,6 +35,7 @@
 			elseif ($userPassword === $userPasswordRepeat){
 				//save to database
 				$userID = random_num(18);
+				$userPassword = password_hash($userPassword, PASSWORD_BCRYPT);
 				
 				if (!empty($userTel)){
 					$query = "insert into accounts (userID,name,surname,mail,tel,password) values ('$userID','$userName','$userSurName','$userMail','$userTel','$userPassword')";

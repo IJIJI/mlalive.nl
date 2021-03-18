@@ -43,7 +43,7 @@ elseif(isset($_POST['userMail']) && isset($_POST['userPassword']))
 
 
 
-				if($userData['password'] === $userPassword)
+				if(password_verify($userPassword, $userData['password']))
 				{
 					if($userData['clearance'] >= 1){
 
