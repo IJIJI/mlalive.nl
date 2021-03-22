@@ -10,6 +10,7 @@
 <title>MLA Live - <?php echo($currentPage); ?></title>
 <meta name="description" content="Het MLA Live webportaal.">
 
+<meta name="author" content="Developer: IJssel Koster" />
 <?php echo('<meta property="og:title" content="MLA live - '.$currentPage.'Q&A Archief">'); ?>
 
 <meta property="og:description" content="Het MLA Live webportaal.">

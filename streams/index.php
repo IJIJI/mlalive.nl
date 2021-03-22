@@ -28,6 +28,7 @@
 
 	<link rel="shortcut icon" href="/img/tertair.png" type="image/x-icon"/> 
 
+	<meta name="author" content="Developer: IJssel Koster" />
 	<title>MLA Live - <?php echo($currentPage); ?></title>
 	<meta name="description" content="Het MLA Live webportaal.">
 

@@ -8,6 +8,7 @@
 
 	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_connection.php');
 	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/account_functions.php');
+	include($_SERVER['DOCUMENT_ROOT'].'/account/scripts/mailing.php');
 
 	$user_data = verifyAccount($con, 1);
 ?>
@@ -27,7 +28,8 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 	<link rel="shortcut icon" href="/img/tertair.png" type="image/x-icon"/> 
-
+	
+	<meta name="author" content="Developer: IJssel Koster" />
 	<title>MLA Live - <?php echo($currentPage); ?></title>
 	<meta name="description" content="Het MLA Live webportaal.">
 
@@ -78,8 +80,9 @@ if(	isset($_POST['streamName']) && isset($_POST['streamLocation']) && isset($_PO
 	
 	if (!empty($_POST['streamName']) && !empty($_POST['streamLocation']) && !empty($_POST['streamDate'])){
 		
-		$variableNames = array('tableID', 'name', 'location', 'date', 'creator', 'createdTime');
-		$variableContent = array(random_num(10), $streamName, $streamLocation, $streamDate, $_SESSION['userID'], 'now()');
+		$tableID = random_num(10);
+		$variableNames = array('tableID', 'name', 'location', 'date', 'creator', 'createdTime', 'lastEditedBy', 'lastEditedAt');
+		$variableContent = array($tableID, $streamName, $streamLocation, $streamDate, $_SESSION['userID'], 'now()', $_SESSION['userID'], 'now()');
 		
 		if (!empty($streamDescription)){
 			$variableNames[] = 'description';
@@ -105,7 +108,7 @@ if(	isset($_POST['streamName']) && isset($_POST['streamLocation']) && isset($_PO
 			$variableContent[] = $_SESSION['userID'];	
 			$variableNames[] = 'approvedAt';
 			$variableContent[] = 'now()';	
-}
+		}
 //		if (!empty($streamBroadcast)){
 //			
 //		}		
@@ -132,7 +135,6 @@ if(	isset($_POST['streamName']) && isset($_POST['streamLocation']) && isset($_PO
 		}
 		
 		//save to database
-		$tableID = random_num(10);
 		$query = 'insert into streams ('.$nameQuery.') values ('.$contentQuery.')';
 //		echo $query;
 
@@ -141,15 +143,16 @@ if(	isset($_POST['streamName']) && isset($_POST['streamLocation']) && isset($_PO
 //			echo "Error: " . mysqli_error($con);
 //			sendMessage("Error: SQL connection.", 'error');
 		}
-
-		if (!empty($streamApproved)){
+		elseif (!empty($streamApproved) && empty($streamBroadcast)){
 			sendMessage("Succes! Created stream.", 'succes');
 		}
-		elseif (!empty($streamBroadcast)) {
+		elseif (!empty($streamApproved) && !empty($streamBroadcast)) {
 			sendMessage("Succes! Broadcasting stream to administrators.", 'succes');
+			streamCreationMailLevel($con, $tableID, 17);
 		}
 		else{
 			sendMessage("Succes! Awaiting approval by admin.", 'succes');
+			streamCreationMailLevel($con, $tableID, 17);
 		}
 						
 	}
@@ -242,7 +245,7 @@ if(	isset($_POST['streamName']) && isset($_POST['streamLocation']) && isset($_PO
 							<span class="approvedCheckboxSlider round"></span>
 						</label>
 					</div>
-					<div title="Send message to administrators" style="display: none" class="modalCheckBox">
+					<div title="Send message to administrators" style="" class="modalCheckBox">
 						<label for="broadcastCheckbox">Broadcast:</label>
 
 						<label class="approvedCheckbox" for="broadcastCheckbox">

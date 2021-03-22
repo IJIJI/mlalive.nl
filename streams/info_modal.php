@@ -58,7 +58,7 @@
 						</div>
 					</div>						
 
-					<div>
+					<div style="display: none">
 						<h2>Approved:</h2>
 						<?php if ($streamData['approved']): ?>				
 						<div class="modalRow">
